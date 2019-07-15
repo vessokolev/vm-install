@@ -1,0 +1,5 @@
+The root password hash in the kickstart file corresponds to the plain text:
+
+tentative#password
+
+Do change the password after installing the image, or before it.

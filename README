@@ -1,0 +1,7 @@
+Pre-requisites:
+
+$ sudo yum groupinstall "Virtualization Host"
+
+Instructions:
+
+Download the current CentOS 7 Minimal ISO (CentOS-7-x86_64-Minimal-1810.iso). Then edit the script su-anycast-node-vm.sh and point to the downloaded ISO file. Finally, run the script.
