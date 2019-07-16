@@ -10,3 +10,4 @@ mkdir /root/.ssh
 chmod 700 /root/.ssh
 touch /root/.ssh/authorized_keys
 chmod 600 /root/.ssh/authorized_keys
+setsebool -P zebra_write_config 1
