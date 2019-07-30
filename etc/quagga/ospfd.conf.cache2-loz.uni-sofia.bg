@@ -1,0 +1,20 @@
+hostname ospfd@cache2-loz
+password zebra
+log file /var/log/quagga/ospfd.log
+service advanced-vty
+!
+debug ospf zebra
+!
+router ospf
+ ospf router-id 62.44.96.206
+ redistribute connected route-map REDISTRIBUTE_CONNECTED
+ network 62.44.96.200/29 area 62.44.96.200
+ area 62.44.96.200 range 62.44.96.200/29
+!
+access-list REDISTRIBUTE_CONNECTED permit 62.44.96.143/32
+!
+route-map REDISTRIBUTE_CONNECTED permit 10
+ match ip address REDISTRIBUTE_CONNECTED
+!
+line vty
+!

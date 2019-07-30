@@ -1,0 +1,8 @@
+hostname zebra@services-ivkm
+password zebra
+log file /var/log/quagga/zebra.log
+!
+debug zebra rib
+!
+line vty
+!

@@ -1,0 +1,22 @@
+hostname ospf6d@ns2-rec
+password zebra
+log file /var/log/quagga/ospf6d.log
+service advanced-vty
+!
+debug ospf6 zebra
+!
+interface eth0
+!
+router ospf6
+ router-id 62.44.96.169
+ redistribute connected route-map REDISTRIBUTE_CONNECTED
+ interface eth0 area 62.44.96.160
+!
+ipv6 prefix-list REDISTRIBUTE_CONNECTED seq 5 permit 2001:67c:20d0:ff::141/128
+!
+route-map REDISTRIBUTE_CONNECTED permit 10
+ match ipv6 address prefix-list REDISTRIBUTE_CONNECTED
+!
+line vty
+ exec-timeout 0 0
+!

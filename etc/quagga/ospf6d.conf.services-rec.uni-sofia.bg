@@ -1,0 +1,28 @@
+hostname ospf6d@services-rec
+password zebra
+log file /var/log/quagga/ospf6d.log
+service advanced-vty
+!
+debug ospf6 zebra
+!
+interface xxx
+ ipv6 ospf6 cost 1
+ ipv6 ospf6 hello-interval 10
+ ipv6 ospf6 dead-interval 40
+ ipv6 ospf6 retransmit-interval 5
+ ipv6 ospf6 priority 1
+ ipv6 ospf6 transmit-delay 1
+ ipv6 ospf6 instance-id 0
+!
+router ospf6
+ router-id 62.44.96.170
+ redistribute connected route-map REDISTRIBUTE_CONNECTED
+ interface xxx area 62.44.96.160
+!
+ipv6 prefix-list AS112 seq 5 permit 2620:4f:8000::/64
+!
+route-map REDISTRIBUTE_CONNECTED permit 10
+ match ipv6 address prefix-list AS112
+!
+line vty
+!
