@@ -1,5 +1,11 @@
 #!/bin/bash
-
+yum -y install iptables-services telnet tcpdump nmap wireshark iptraf-ng mc ftp lftp rsync traceroute bind-chroot bind-utils vim-enhanced nano quagga zip unzip bzip2 ntpdate sendmail-cf epel-release yum-cron chrony
+yum -y install fail2ban
+yum -y remove postfix
+systemctl restart sendmail
+systemctl mask firewalld
+systemctl stop firewalld
+systemctl enable ntpdate
 sed -i 's/installonly_limit=5/installonly_limit=2/' /etc/yum.conf
 sed -i 's/apply_updates = no/apply_updates = yes/g' /etc/yum/yum-cron.conf
 echo -e "131.188.3.221\n193.67.79.202" > /etc/ntp/step-tickers
