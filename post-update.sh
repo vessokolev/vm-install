@@ -31,5 +31,5 @@ echo -e "\nCiphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes256-c
 semanage port -a -t ssh_port_t -p tcp 1025
 systemctl restart sshd
 wget https://raw.githubusercontent.com/vessokolev/vm-install/master/etc/modprobe.d/dummy.conf -O /etc/modprobe.d/dummy.conf
-wget https://raw.githubusercontent.com/vessokolev/vm-install/master/etc/modules-load.d/dummy.conf -O -O /etc/modprobe.d/dummy.conf
+wget https://raw.githubusercontent.com/vessokolev/vm-install/master/etc/modules-load.d/dummy.conf -O /etc/modules-load.d/dummy.conf
 reboot
