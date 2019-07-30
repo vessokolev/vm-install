@@ -34,4 +34,6 @@ semanage port -a -t ssh_port_t -p tcp 1025
 systemctl restart sshd
 wget https://raw.githubusercontent.com/vessokolev/vm-install/master/etc/modprobe.d/dummy.conf -O /etc/modprobe.d/dummy.conf
 wget https://raw.githubusercontent.com/vessokolev/vm-install/master/etc/modules-load.d/dummy.conf -O /etc/modules-load.d/dummy.conf
+wget https://raw.githubusercontent.com/vessokolev/vm-install/master/usr/lib/systemd/system/setkey.service -O /usr/lib/systemd/system/setkey.service
+systemctl daemon-reload
 reboot
