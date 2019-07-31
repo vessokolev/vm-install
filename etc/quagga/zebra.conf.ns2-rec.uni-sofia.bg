@@ -1,8 +1,28 @@
 hostname zebra@ns2-rec
 password zebra
 log file /var/log/quagga/zebra.log
+service advanced-vty
 !
 debug zebra rib
+!
+interface eth0
+ ip address 62.44.96.169/28
+ ipv6 address 2001:67c:20d1:160::169/64
+ ipv6 nd suppress-ra
+!
+interface eth1
+ ip address 192.168.122.169/24
+ ipv6 nd suppress-ra
+!
+interface ethdummy1
+ ip address 62.44.96.141/32
+ ipv6 address 2001:67c:20d0:ff::141/128
+ ipv6 nd suppress-ra
+!
+interface lo
+!
+router-id 62.44.96.169
+!
 !
 line vty
 !
