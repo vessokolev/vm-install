@@ -26,6 +26,7 @@ interface lo
 !
 router-id 62.44.96.205
 !
+ip route 0.0.0.0/0 192.168.122.1
 !
 line vty
 !
